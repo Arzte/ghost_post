@@ -16,6 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from homepage.views import homepage_view, add_post, add_upvote, add_downvote, boast_view, roast_view, vote_view
+
 urlpatterns = [
+    path('', homepage_view, name='home'),
+    path('addpost', add_post, name='addpost'),
+    path('addupvote/<int:post_id>', add_upvote, name='addupvote'),
+    path('adddownvote/<int:post_id>', add_downvote, name='downvote'),
+    path('boasts', boast_view, name='boast_view'),
+    path('roasts', roast_view, name='roast_view'),
+    path('votes', vote_view, name='vote_view'),
     path('admin/', admin.site.urls),
 ]

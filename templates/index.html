@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ghost Posting</title>
+    </head>
+    <body>
+        <a href="addpost">Add Post</a>
+        Sort by:
+        <a href="boasts">Boasts</a>
+        <a href="roasts">Roasts</a>
+        <a href="votes">Votes</a>
+        <ul>
+            {% for post in posts %}
+                <li>
+                    {{ post.score }}
+                    <a href="addupvote/{{post.id}}">Upvote</a>
+                    <a href="adddownvote/{{post.id}}">Downvote</a>
+                    <br>
+                    <p>{{ post.content }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
